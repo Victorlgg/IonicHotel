@@ -10,6 +10,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  public appMenu = [
+    {title: 'Mis Reservas', url: '/mybookings', icon:'list'},
+    {title: 'Ver hoteles', url: '/list-hotel', icon:'list'},
+    {title: 'Salir', url: '/home', icon:'add'},     
+  ];
+
+
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

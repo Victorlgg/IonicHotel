@@ -1,3 +1,39 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-split-pane contentId="menu-content" when="xs" [disabled]="true" (ionSplitPaneVisible)="onSplitPaneVisible(event)">
+    <ion-menu contentId="menu-content" menuId="menu-content" side="start" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Acciones</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle *ngFor="let p of appMenu" side="start" type="overlay" auto-hide="false">
+            <!-- <ion-header>
+              <ion-toolbar>
+                <ion-title>Awesome avocado menu</ion-title>
+              </ion-toolbar>
+            </ion-header> -->
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>{{p.title}}</ion-label>
+            </ion-item>
+            <!-- <ion-content>
+              Awesome avocado content
+              
+                
+              
+            </ion-content> -->
+          </ion-menu-toggle>
+
+        </ion-list> 
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet  main id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
+
+  <!-- <ion-router-outlet></ion-router-outlet> -->
 </ion-app>
+
+<!-- _+}{}|"??>======" -->

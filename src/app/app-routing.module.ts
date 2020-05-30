@@ -11,6 +11,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'list-hotel',
+    loadChildren: () => import('./list-hotel/list-hotel.module').then( m => m.ListHotelPageModule)
+  },
+  {
+    path: 'booking/:id',
+    loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
+  },
+  {
+    path: 'mybookings',
+    loadChildren: () => import('./mybookings/mybookings.module').then( m => m.MybookingsPageModule)
+  }
 ];
 
 @NgModule({
