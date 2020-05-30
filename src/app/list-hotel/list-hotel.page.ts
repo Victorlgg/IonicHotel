@@ -19,6 +19,7 @@ export class ListHotelPage implements OnInit {
   ngOnInit() {
     this.hotelService.getHotel().subscribe(response=>{
       this.hoteles=response;
+      console.log(response);
     });
     /* this.hotelService.getHotel().subscribe(response=>console.log(response)); */
   }
