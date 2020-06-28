@@ -11,11 +11,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
+<ion-content >
+  
+  <ion-card *ngFor="let hotel of hotel">
     <ion-card-header>
-      <ion-card-title>Nombre Hotel</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Hotel {{hotel.nombre}}</ion-card-title>
+      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
 
     </ion-card-header>
 
@@ -23,13 +24,13 @@
       Fecha
     </ion-card-content>
     <ion-card-content>
-      Piso
+     Piso: {{hotel.piso}}
     </ion-card-content>
     <ion-card-content>
-      Nombre habitacion
+      Nombre habitación: {{hotel.habitacion}}
     </ion-card-content>
     <ion-card-content>
-      $$$
+      Costo: {{hotel.costo}}
     </ion-card-content>
 
     <ion-button (click)="redirectRegister()" color="dark" expand="block" fill="solid" shape="round" type="submit">

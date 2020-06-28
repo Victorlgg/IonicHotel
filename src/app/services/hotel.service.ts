@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,11 @@ export class HotelService {
 
   constructor(private http: HttpClient) { }
 
-   getHotel():Observable<any>{
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+   getHotels():Observable<any>{
      return this.http.get<any>(
        `${environment.apiUrl}/hoteles.php`,
 
@@ -20,8 +24,15 @@ export class HotelService {
    postHotel(id):Observable<any>{
     return this.http.post<any>(
       `${environment.apiUrl}/categorias.php`,
-      id
+      id, this.httpOptions
       
+    );
+  }
+
+  getHotel(id: number):Observable<any>{
+    return this.http.get<any>(
+      `${environment.apiUrl}hoteles.php/?id=${id}`,
+
     );
   }
 
