@@ -14,9 +14,10 @@ export class HotelService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-   getHotels():Observable<any>{
+   getHotels(fecha: string):Observable<any>{
+     console.log(fecha);
      return this.http.get<any>(
-       `${environment.apiUrl}/hoteles.php`,
+       `${environment.apiUrl}hoteles.php?fecha=${fecha}`,
 
      );
    }

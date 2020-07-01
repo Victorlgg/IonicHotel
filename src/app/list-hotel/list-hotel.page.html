@@ -7,7 +7,7 @@
     </ion-buttons>
     
 
-    <ion-title>lista de hoteles</ion-title>
+    <ion-title>lista de hoteles </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +19,9 @@
 
   <ion-item>
     <ion-label>Fecha</ion-label>
-    <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2020" value="2020-29-05"></ion-datetime>
+    <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2020" value="2020-29-05"
+    [(ngModel)]="fecha" (ngModelChange)="loadHotels()" placeholder="Seleccione fecha"
+    ></ion-datetime>
   </ion-item>
 
   <ion-searchbar color="secondary" showCancelButton="focus"></ion-searchbar>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { HotelService } from '../services/hotel.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-list-hotel',
@@ -10,6 +11,7 @@ import { HotelService } from '../services/hotel.service';
 })
 export class ListHotelPage implements OnInit {
   hoteles;
+  fecha='';
   constructor(private router: Router,
     private menu: MenuController,
     private hotelService: HotelService
@@ -17,15 +19,25 @@ export class ListHotelPage implements OnInit {
 
     //onLoad
   ngOnInit() {
-    this.hotelService.getHotels().subscribe(response=>{
-      this.hoteles=response;
-      //console.log(response);
-    });
+    
     /* this.hotelService.getHotel().subscribe(response=>console.log(response)); */
   }
 
   redirectHome(){
     this.router.navigate(['/home']);
+  }
+
+  print(){
+    //this.fecha = formatDate(this.fecha,'MM/dd/yy', "en-US");
+    //console.log(this.fecha);
+  }
+
+  loadHotels(){
+    this.fecha = formatDate(this.fecha,'yyyy-MM-dd', "en-US");
+    this.hotelService.getHotels(this.fecha).subscribe(response=>{
+      this.hoteles=response;
+      //console.log(response);
+    });
   }
 
   /* openFirst() {

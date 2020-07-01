@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+
 import { ListHotelPageRoutingModule } from './list-hotel-routing.module';
 
 import { ListHotelPage } from './list-hotel.page';
+
 
 @NgModule({
   imports: [
